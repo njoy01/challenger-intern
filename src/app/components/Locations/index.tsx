@@ -22,8 +22,9 @@ export function Locations({onSelectLocation}: { onSelectLocation: (id: string) =
 
     return (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <h1 className="text-xl text-black md:col-span-3 flex items-center gap-2">
-                <Map/> Locations
+            <h1 className="text-xl text-gray-200 md:col-span-3 flex items-center gap-2  my-2">
+                <Map />
+                Locations
             </h1>
 
             {loading && (

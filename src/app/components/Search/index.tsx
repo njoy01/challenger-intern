@@ -13,8 +13,8 @@ const Search = () => {
     return (
         <div className="grid gap-4">
 
-            <h1 className="text-xl text-gray-200 flex items-center gap-2 justify-center mb-4 mt-2">
-                <Calendar className="w-5 h-5"/>
+            <h1 className="text-xl text-gray-200 flex items-center gap-2 justify-start mb-3 mt-2">
+                <Calendar />
                 Events
             </h1>
 
