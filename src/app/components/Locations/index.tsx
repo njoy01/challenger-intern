@@ -3,7 +3,13 @@
 import {Loader, AArrowUp, Map} from "lucide-react";
 import {useEffect, useState} from "react";
 
-export function Locations({onSelectLocation}: { onSelectLocation: (id: string) => void }) {
+export function Locations({
+    onSelectLocation,
+    locationFilter,
+}: {
+    onSelectLocation: (id: string) => void;
+    locationFilter: string;
+}) {
     const [locations, setLocations] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -33,12 +39,21 @@ export function Locations({onSelectLocation}: { onSelectLocation: (id: string) =
                 </div>
             )}
 
-            {locations.map((location) => (
-                <div
-                    key={location.id}
-                    className="cursor-pointer hover:opacity-80 transition relative aspect-video rounded-lg overflow-hidden"
-                    onClick={() => onSelectLocation(location.id)}
-                >
+            {locations.map((location) => {
+                const isActive = locationFilter === location.id;
+
+                return (
+                    <div
+                        key={location.id}
+                        onClick={() => onSelectLocation(location.id)}
+                        className={`
+              cursor-pointer
+              hover:opacity-80
+              transition
+              relative aspect-video rounded-lg overflow-hidden
+              ${isActive ? "ring-2 ring-blue-500 " : ""}
+            `}
+                    >
                     <img
                         className="object-cover h-full w-full"
                         src={location.imageUrl}
@@ -53,8 +68,9 @@ export function Locations({onSelectLocation}: { onSelectLocation: (id: string) =
                             {location.locationId}
                         </p>
                     </div>
-                </div>
-            ))}
+                    </div>
+                );
+            })}
         </div>
     );
 }

@@ -38,8 +38,14 @@ const Search = () => {
             />
             {/*location component with filter*/}
             <Events searchFilter={searchFilter} locationFilter={locationFilter} />
+
             {/*events component with search filter*/}
-            <Locations onSelectLocation={(id) => setLocationFilter(id)} />
+            <Locations
+                onSelectLocation={(id) =>
+                    setLocationFilter((active) => (active === id ? "" : id))
+                }
+                locationFilter={locationFilter}
+            />
         </div>
     );
 };
