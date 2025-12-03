@@ -36,10 +36,10 @@ const Search = () => {
   transition
 "
             />
-            {/*location component with filter*/}
+            {/*location component with search filter*/}
             <Events searchFilter={searchFilter} locationFilter={locationFilter} />
 
-            {/*events component with search filter*/}
+            {/*events component with location filter*/}
             <Locations
                 onSelectLocation={(id) =>
                     setLocationFilter((active) => (active === id ? "" : id))

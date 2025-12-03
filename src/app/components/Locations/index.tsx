@@ -1,6 +1,6 @@
 "use client";
 
-import {Loader, AArrowUp, Map} from "lucide-react";
+import {Loader, Map} from "lucide-react";
 import {useEffect, useState} from "react";
 
 export function Locations({
@@ -39,6 +39,7 @@ export function Locations({
                 </div>
             )}
 
+            {/*checks if location is active */}
             {locations.map((location) => {
                 const isActive = locationFilter === location.id;
 
@@ -63,9 +64,9 @@ export function Locations({
                     />
 
                     <div className="absolute inset-x-0 bottom-0 p-2">
-                        <h1 className="text-sm text-primary-foreground">{location.name}</h1>
-                        <p className="text-xs text-secondary-foreground">
-                            {location.locationId}
+                        <h1 className="text-sm text-black ">{location.name}</h1>
+                        <p className="text-xs  text-black">
+                            {location.city}
                         </p>
                     </div>
                     </div>
