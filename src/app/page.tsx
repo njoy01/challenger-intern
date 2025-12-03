@@ -13,7 +13,7 @@ export default function Home() {
 
       <Search />
       {/*<Events />*/}
-      <Locations />
+      {/*<Locations />*/}
     </main>
   );
 }

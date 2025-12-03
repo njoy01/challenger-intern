@@ -3,15 +3,17 @@
 import {useState} from "react";
 import {Events} from "../Events";
 import {Calendar} from "lucide-react";
+import {Locations} from "@/app/components/Locations";
 
 const Search = () => {
     const [searchFilter, setSearchFilter] = useState("");
+    const [locationFilter, setLocationFilter] = useState("");
 
     // input field for the search filter
     return (
         <div className="grid gap-4">
 
-            <h1 className="text-xl text-gray-200 flex items-center gap-2 justify-center mb-3 mt-2">
+            <h1 className="text-xl text-gray-200 flex items-center gap-2 justify-center mb-4 mt-2">
                 <Calendar className="w-5 h-5"/>
                 Events
             </h1>
@@ -34,9 +36,10 @@ const Search = () => {
   transition
 "
             />
-
+            {/*location component with filter*/}
+            <Events searchFilter={searchFilter} locationFilter={locationFilter} />
             {/*events component with search filter*/}
-            <Events searchFilter={searchFilter}/>
+            <Locations onSelectLocation={(id) => setLocationFilter(id)} />
         </div>
     );
 };

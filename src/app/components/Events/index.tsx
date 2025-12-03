@@ -4,7 +4,13 @@ import {Calendar, Loader, AArrowUp} from "lucide-react";
 import {useEffect, useState} from "react";
 
 
-export function Events({ searchFilter }: { searchFilter: string }) {
+export function Events({
+searchFilter,
+locationFilter
+}: {
+    searchFilter: string;
+    locationFilter: string;
+}) {
     const [events, setEvents] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -22,9 +28,12 @@ export function Events({ searchFilter }: { searchFilter: string }) {
     }, []);
 
     // filters events based on search filter
-    const filteredEvents = events.filter((event) =>
-        event.name.toLowerCase().includes((searchFilter ?? "").toLowerCase())
-    );
+    const filteredEvents = events.filter((event) => {
+        const filterSearch = event.name.toLowerCase().includes((searchFilter ?? "").toLowerCase())
+        const filterLocation = locationFilter === "" || event.locationId === locationFilter;
+
+        return filterSearch && filterLocation;
+    });
 
     return (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
