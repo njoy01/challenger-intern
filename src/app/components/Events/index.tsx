@@ -28,9 +28,6 @@ export function Events({ searchFilter }: { searchFilter: string }) {
 
     return (
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-            <h1 className="text-xl text-black md:col-span-3 flex items-center gap-2">
-                <Calendar/> Events
-            </h1>
 
             {loading && (
                 <div className="grid place-items-center md:col-span-3 p-10">
