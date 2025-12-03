@@ -12,8 +12,7 @@ export default function Home() {
       </div>
 
       <Search />
-
-      <Events />
+      {/*<Events />*/}
       <Locations />
     </main>
   );

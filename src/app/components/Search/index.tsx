@@ -1,7 +1,25 @@
 "use client";
 
+import {useState} from "react";
+import {Events} from "../Events";
+
 const Search = () => {
-  return <div>Start building your search here 🎨</div>;
+    const [searchFilter, setSearchFilter] = useState("");
+
+    // input field for the search filter
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search for events..."
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
+            />
+
+            {/*events component with search filter*/}
+            <Events searchFilter={searchFilter}/>
+        </div>
+    );
 };
 
 export default Search;
